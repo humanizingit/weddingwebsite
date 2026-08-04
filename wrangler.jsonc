@@ -1,0 +1,11 @@
+{
+  // Static-assets-only deploy: Next.js exports the site to ./out (output: "export"
+  // in next.config.ts), and Cloudflare serves it directly — no server runtime needed.
+  "name": "weddingwebsite",
+  "compatibility_date": "2026-08-04",
+  "assets": {
+    "directory": "./out",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  }
+}
