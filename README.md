@@ -30,14 +30,63 @@ Almost all content lives in **`src/data/site.ts`** — edit it to update:
 - **Gallery** image list
 - **FAQs**
 
-## Turn on the RSVP form (2 minutes)
+## RSVP: Supabase (storage) + Resend (email) via Cloudflare Worker
 
-1. Create a free account at [formspree.io](https://formspree.io) and click **New Form**
-2. Copy the form ID from your endpoint URL — e.g. `https://formspree.io/f/xabcdefg` → `xabcdefg`
-3. Paste it into `formspreeId` in `src/data/site.ts`
+The RSVP form is intentionally simple — **name + yes/no** (everybody's invited to
+everything!). Submissions go to `POST /api/rsvp`, handled by the Cloudflare Worker in
+[`worker/index.ts`](worker/index.ts), which:
 
-RSVPs will then arrive in your email inbox (and the Formspree dashboard). Until the ID
-is set, the form shows guests a friendly "email us instead" note.
+1. **Stores** the response in a Supabase table (`rsvps`) — your permanent guest list
+2. **Emails** you a notification via Resend
+
+### One-time setup
+
+**Supabase (storage):**
+1. Create a free project at [supabase.com](https://supabase.com)
+2. In the SQL Editor, run:
+   ```sql
+   create table rsvps (
+     id uuid primary key default gen_random_uuid(),
+     name text not null,
+     attending boolean not null,
+     created_at timestamptz not null default now()
+   );
+   alter table rsvps enable row level security;  -- no public policies: only the
+                                                 -- worker's service key can touch it
+   ```
+3. Grab **Project Settings → API**: the project URL and the `service_role` key
+
+**Resend (email):**
+1. Create a free account at [resend.com](https://resend.com) → **API Keys** → create one
+2. Optional: verify your own domain to send from e.g. `rsvp@alishaandneel.com`;
+   until then it sends from Resend's onboarding address to your own email
+
+**Cloudflare (wire it up):** In the dashboard → Workers & Pages → `weddingwebsite` →
+**Settings → Variables and Secrets**, add these as **Secrets**:
+
+| Name | Value |
+|---|---|
+| `SUPABASE_URL` | your project URL (`https://xxxx.supabase.co`) |
+| `SUPABASE_SERVICE_ROLE_KEY` | the service_role key |
+| `RESEND_API_KEY` | your Resend key |
+| `ADMIN_KEY` | any passphrase you choose — unlocks the guest list page |
+
+(`NOTIFY_EMAIL` is already set in `wrangler.jsonc`.) Redeploy after adding them.
+
+### Viewing your RSVPs
+
+- **`/admin` on your live site** — enter your `ADMIN_KEY` to see live counts
+  (total / accepted / declined) and the full list, pulled from Supabase
+- **Supabase dashboard** — Table Editor → `rsvps` (you can also export CSV there)
+- **Email** — every submission also lands in your inbox via Resend
+
+### Local testing
+
+`npm run dev` serves only the static site (no API). To test the full flow locally,
+create a `.dev.vars` file (gitignored) with the four secrets above and run:
+```bash
+npm run build && npx wrangler dev
+```
 
 ## Replace the placeholder images
 

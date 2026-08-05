@@ -1,11 +1,19 @@
 {
-  // Static-assets-only deploy: Next.js exports the site to ./out (output: "export"
-  // in next.config.ts), and Cloudflare serves it directly — no server runtime needed.
+  // Static site served from ./out (Next.js output: "export"), with a small
+  // Worker in front handling the RSVP API (see worker/index.ts).
+  // Requests that match a static file are served directly; /api/* hits the Worker.
   "name": "weddingwebsite",
+  "main": "worker/index.ts",
   "compatibility_date": "2026-08-04",
   "assets": {
     "directory": "./out",
+    "binding": "ASSETS",
     "html_handling": "auto-trailing-slash",
     "not_found_handling": "404-page"
+  },
+  "vars": {
+    "NOTIFY_EMAIL": "patel.neel76@gmail.com"
   }
+  // Secrets (set in Cloudflare dashboard → Variables and Secrets, or `wrangler secret put`):
+  //   SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, RESEND_API_KEY, ADMIN_KEY
 }

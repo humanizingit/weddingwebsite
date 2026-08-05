@@ -16,11 +16,8 @@ export const siteConfig = {
   weddingDateDisplay: "January 29, 2027",
   location: "South Gujarat, India",
 
-  // ── RSVP ──────────────────────────────────────────────────────────────────
-  // 1. Create a free form at https://formspree.io  →  2. Paste its ID below.
-  // Example: if your endpoint is https://formspree.io/f/xabcdefg → "xabcdefg"
-  formspreeId: "",
-
+  // RSVP submissions post to /api/rsvp (Cloudflare Worker → Supabase + Resend).
+  // See worker/index.ts and the README for setup.
   email: "patel.neel76@gmail.com",
 };
 
@@ -229,7 +226,7 @@ export const travel = {
   },
   transfers: {
     title: "Airport Transfers",
-    text: "Sprinter vans will run from Mumbai airport to the hotels for every arrival window — no need to arrange your own car. Just share your flight details when you RSVP and we'll have a seat (and snacks) waiting for you.",
+    text: "Sprinter vans will run from Mumbai airport to the hotels for every arrival window — no need to arrange your own car. We'll collect everyone's flight details closer to the date, and we'll have a seat (and snacks) waiting for you.",
   },
   // Add hotels as they're confirmed, e.g.:
   // { name: "Hotel Name", area: "10 min from the venue", note: "Rooms blocked under 'Patel Wedding'", url: "https://..." },
@@ -310,7 +307,7 @@ export const faqs = [
   },
   {
     q: "Will transportation be provided?",
-    a: "Yes — sprinter vans will pick guests up at Mumbai airport and bring you to the hotels, and shuttles will run between the hotels and all wedding events. Share your flight details when you RSVP so we can plan your pickup.",
+    a: "Yes — sprinter vans will pick guests up at Mumbai airport and bring you to the hotels, and shuttles will run between the hotels and all wedding events. We'll collect flight details from everyone closer to the date so we can plan your pickup.",
   },
   {
     q: "What about gifts?",
