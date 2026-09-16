@@ -12,7 +12,7 @@ export const siteConfig = {
   },
 
   // Wedding day (IST). Used for the countdown and displayed dates.
-  weddingDateISO: "2027-01-29T09:00:00+05:30",
+  weddingDateISO: "2027-01-29T12:00:00+05:30",
   weddingDateDisplay: "January 29, 2027",
   location: "South Gujarat, India",
 
@@ -161,14 +161,14 @@ const allEvents: WeddingEvent[] = [
     gujaratiName: "લગ્ન",
     side: "Together",
     date: "Friday, January 29, 2027",
-    time: "Baraat at 9:00 AM · Ceremony to follow",
-    startISO: "2027-01-29T09:00:00+05:30",
-    endISO: "2027-01-29T14:00:00+05:30",
-    location: "South Gujarat, India",
-    venue: "South Gujarat — venue to be announced",
+    time: "Baraat departs at 12:00 PM · Ceremony to follow",
+    startISO: "2027-01-29T12:00:00+05:30",
+    endISO: "2027-01-29T18:00:00+05:30",
+    location: "Koli Bhatana, Kamrej",
+    venue: "Alisha's family home, Koli Bhatana — full details to follow",
     attire: "Formal Indian attire in jewel tones (please avoid white & black)",
     description:
-      "The main event — Neel arrives in a joyous baraat procession, and Alisha & Neel exchange garlands and take their pheras around the sacred fire.",
+      "The main event. At noon, Neel's baraat sets off from Jespor for the two-hour journey to Alisha's home in Koli Bhatana — a joyous procession all the way. On arrival, Alisha & Neel exchange garlands and take their pheras around the sacred fire.",
     tradition:
       "The ceremony begins with the baraat (the groom's dancing procession), followed by the jaimala (exchange of garlands) and the pheras — seven circles around the sacred fire, each representing a vow the couple makes to one another.",
   },
