@@ -31,6 +31,8 @@ export type WeddingEvent = {
   /** Machine-readable times (IST) — used for the "Add to Calendar" .ics download */
   startISO: string;
   endISO: string;
+  /** Town / village where this event takes place (shown on the home page) */
+  location: string;
   venue: string;
   attire: string;
   description: string;
@@ -46,7 +48,8 @@ export const events: WeddingEvent[] = [
     time: "3:00 PM onwards",
     startISO: "2027-01-26T15:00:00+05:30",
     endISO: "2027-01-26T19:00:00+05:30",
-    venue: "Venue to be announced",
+    location: "Koli Bhatana, Kamrej",
+    venue: "Koli Bhatana, Kamrej — venue to be announced",
     attire: "Colorful festive Indian wear — think greens, pinks & florals",
     description:
       "An afternoon of intricate henna, music, and mithai with Alisha and the women of both families as the celebrations officially begin.",
@@ -61,7 +64,8 @@ export const events: WeddingEvent[] = [
     time: "9:00 AM",
     startISO: "2027-01-27T09:00:00+05:30",
     endISO: "2027-01-27T11:00:00+05:30",
-    venue: "Alisha's family home — details to follow",
+    location: "Koli Bhatana, Kamrej",
+    venue: "Alisha's family home, Koli Bhatana — details to follow",
     attire: "Casual yellows — wear something you don't mind getting turmeric on!",
     description:
       "A playful morning ceremony where Alisha is blessed (and thoroughly covered) with turmeric paste by her family.",
@@ -76,7 +80,8 @@ export const events: WeddingEvent[] = [
     time: "9:00 AM",
     startISO: "2027-01-27T09:00:00+05:30",
     endISO: "2027-01-27T11:00:00+05:30",
-    venue: "Neel's family home — details to follow",
+    location: "Jespor, Gujarat",
+    venue: "Neel's family home, Jespor — details to follow",
     attire: "Casual yellows — wear something you don't mind getting turmeric on!",
     description:
       "A playful morning ceremony where Neel is blessed (and thoroughly covered) with turmeric paste by his family.",
@@ -91,7 +96,8 @@ export const events: WeddingEvent[] = [
     time: "7:00 PM onwards",
     startISO: "2027-01-27T19:00:00+05:30",
     endISO: "2027-01-27T23:00:00+05:30",
-    venue: "Venue to be announced",
+    location: "Koli Bhatana, Kamrej",
+    venue: "Koli Bhatana, Kamrej — venue to be announced",
     attire: "Chaniya choli or festive Indian wear — dress to twirl",
     description:
       "Alisha's side hosts a high-energy night of garba and raas circles, dandiya, and family performances in her honor.",
@@ -106,7 +112,8 @@ export const events: WeddingEvent[] = [
     time: "7:00 PM onwards",
     startISO: "2027-01-27T19:00:00+05:30",
     endISO: "2027-01-27T23:00:00+05:30",
-    venue: "Venue to be announced",
+    location: "Jespor, Gujarat",
+    venue: "Jespor, Gujarat — venue to be announced",
     attire: "Kediyu / chaniya choli or festive Indian wear — dress to twirl",
     description:
       "Neel's side hosts its own night of garba, raas, dandiya, and performances to send the groom off in style.",
@@ -121,7 +128,8 @@ export const events: WeddingEvent[] = [
     time: "10:00 AM",
     startISO: "2027-01-28T10:00:00+05:30",
     endISO: "2027-01-28T12:00:00+05:30",
-    venue: "Alisha's family home — details to follow",
+    location: "Koli Bhatana, Kamrej",
+    venue: "Alisha's family home, Koli Bhatana — details to follow",
     attire: "Traditional Indian wear",
     description:
       "A sacred prayer ceremony at Alisha's home with close family, seeking blessings for the marriage ahead.",
@@ -136,7 +144,8 @@ export const events: WeddingEvent[] = [
     time: "10:00 AM",
     startISO: "2027-01-28T10:00:00+05:30",
     endISO: "2027-01-28T12:00:00+05:30",
-    venue: "Neel's family home — details to follow",
+    location: "Jespor, Gujarat",
+    venue: "Neel's family home, Jespor — details to follow",
     attire: "Traditional Indian wear",
     description:
       "A sacred prayer ceremony at Neel's home with close family, seeking blessings for the marriage ahead.",
@@ -151,7 +160,8 @@ export const events: WeddingEvent[] = [
     time: "Baraat at 9:00 AM · Ceremony to follow",
     startISO: "2027-01-29T09:00:00+05:30",
     endISO: "2027-01-29T14:00:00+05:30",
-    venue: "Venue to be announced",
+    location: "South Gujarat, India",
+    venue: "South Gujarat — venue to be announced",
     attire: "Formal Indian attire in jewel tones (please avoid white & black)",
     description:
       "The main event — Neel arrives in a joyous baraat procession, and Alisha & Neel exchange garlands and take their pheras around the sacred fire.",
@@ -179,13 +189,13 @@ export const story = {
     {
       title: "The Coconut Ceremony",
       date: "December 2025",
-      image: "/images/story-3.svg",
+      image: "/images/coconut-ceremony.webp",
       text: "In December, our families came together for our coconut ceremony — the cherished Gujarati tradition where the bride's family welcomes the groom with a shreefal (coconut), officially sealing the match. With blessings from both sides, Alisha & Neel became official — and the countdown to Gujarat began.",
     },
     {
       title: "The Engagement Party",
       date: "stateside send-off",
-      image: "/images/story-2.svg",
+      image: "/images/engagement.webp",
       text: "Before the packing and the passports, we threw an engagement party to celebrate with our family here in the US — part pre-wedding bash, part send-off. Toasts, dancing, and both families in one room: the perfect warm-up for everything waiting for us in India.",
     },
   ],
@@ -254,14 +264,11 @@ export const travel = {
 };
 
 export const gallery = [
-  { src: "/images/gallery-1.svg", alt: "Alisha & Neel — engagement shoot" },
-  { src: "/images/gallery-2.svg", alt: "Alisha & Neel — golden hour" },
-  { src: "/images/gallery-3.svg", alt: "Alisha & Neel — candid laughter" },
-  { src: "/images/gallery-4.svg", alt: "Alisha & Neel — traditional attire" },
-  { src: "/images/gallery-5.svg", alt: "Alisha & Neel — garden portrait" },
-  { src: "/images/gallery-6.svg", alt: "Alisha & Neel — the proposal" },
-  { src: "/images/gallery-7.svg", alt: "Alisha & Neel — family celebration" },
-  { src: "/images/gallery-8.svg", alt: "Alisha & Neel — sunset walk" },
+  { src: "/images/hero.webp", alt: "Alisha & Neel — a walk in the park" },
+  { src: "/images/engagement.webp", alt: "Alisha & Neel — the engagement" },
+  { src: "/images/coconut-ceremony.webp", alt: "Alisha & Neel — coconut ceremony" },
+  { src: "/images/first-photo.webp", alt: "Alisha & Neel — our first photo together" },
+  { src: "/images/roadtrip.webp", alt: "Alisha & Neel — on the road" },
 ];
 
 export const registry = {

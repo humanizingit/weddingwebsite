@@ -18,7 +18,7 @@ export default function HomePage() {
           </Reveal>
           <Reveal delay={150} className="mt-10 w-full max-w-md md:mt-12">
             <ArchImage
-              src="/images/hero.svg"
+              src="/images/hero.webp"
               alt={`${siteConfig.couple.partner1} and ${siteConfig.couple.partner2}`}
               className="aspect-[3/4] w-full"
             />
@@ -101,13 +101,17 @@ export default function HomePage() {
                 </p>
                 <span className="mx-auto my-3 block h-px w-8 bg-champagne" />
                 <p className="text-xs uppercase tracking-[0.2em] text-taupe">{ev.date}</p>
+                <p className="mt-2 text-sm text-charcoal/80">{ev.location}</p>
               </Reveal>
             ))}
           </div>
           <Reveal delay={300}>
+            <p className="mt-12 font-display text-lg italic text-sage-deep">
+              venues, timings &amp; full details coming soon
+            </p>
             <Link
               href="/events"
-              className="mt-12 inline-block rounded-full border border-charcoal px-8 py-3 text-xs uppercase tracking-[0.25em] transition-colors hover:bg-charcoal hover:text-ivory"
+              className="mt-6 inline-block rounded-full border border-charcoal px-8 py-3 text-xs uppercase tracking-[0.25em] transition-colors hover:bg-charcoal hover:text-ivory"
             >
               View all events
             </Link>
