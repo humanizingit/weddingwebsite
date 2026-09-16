@@ -3,7 +3,7 @@ import ArchImage from "@/components/ArchImage";
 import CalendarDownload from "@/components/CalendarDownload";
 import Countdown from "@/components/Countdown";
 import Reveal from "@/components/Reveal";
-import { siteConfig, events, story } from "@/data/site";
+import { siteConfig, events, story, showFullTimeline } from "@/data/site";
 
 export default function HomePage() {
   return (
@@ -87,10 +87,16 @@ export default function HomePage() {
           <Reveal>
             <p className="font-script text-4xl text-sage-deep">the celebrations</p>
             <h2 className="mt-3 font-display text-4xl font-light uppercase tracking-[0.18em]">
-              Four days of joy
+              {showFullTimeline ? "Four days of joy" : "The wedding day"}
             </h2>
           </Reveal>
-          <div className="mt-12 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+          <div
+            className={
+              showFullTimeline
+                ? "mt-12 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4"
+                : "mx-auto mt-12 max-w-sm"
+            }
+          >
             {events.map((ev, i) => (
               <Reveal key={ev.side + ev.name} delay={(i % 4) * 100}>
                 <p className="font-script text-xl text-sage-deep">
@@ -107,7 +113,9 @@ export default function HomePage() {
           </div>
           <Reveal delay={300}>
             <p className="mt-12 font-display text-lg italic text-sage-deep">
-              venues, timings &amp; full details coming soon
+              {showFullTimeline
+                ? "venues, timings & full details coming soon"
+                : "venue, timings & the full week of celebrations coming soon"}
             </p>
             <Link
               href="/events"

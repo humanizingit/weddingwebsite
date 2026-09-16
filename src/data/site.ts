@@ -39,7 +39,11 @@ export type WeddingEvent = {
   tradition: string;
 };
 
-export const events: WeddingEvent[] = [
+// Set to true to show the full four-day timeline (mehndi, pithi, sangeet,
+// grah shanti). While false, only the wedding ceremony is shown site-wide.
+export const showFullTimeline = false;
+
+const allEvents: WeddingEvent[] = [
   {
     name: "Mehndi",
     gujaratiName: "મહેંદી",
@@ -169,6 +173,10 @@ export const events: WeddingEvent[] = [
       "The ceremony begins with the baraat (the groom's dancing procession), followed by the jaimala (exchange of garlands) and the pheras — seven circles around the sacred fire, each representing a vow the couple makes to one another.",
   },
 ];
+
+export const events: WeddingEvent[] = showFullTimeline
+  ? allEvents
+  : allEvents.filter((ev) => ev.side === "Together");
 
 export const story = {
   intro:
