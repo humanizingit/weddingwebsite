@@ -266,6 +266,7 @@ export const travel = {
     title: "Getting There",
     airportCode: "BOM",
     airportName: "Chhatrapati Shivaji Maharaj International Airport, Mumbai",
+    mapQuery: "Chhatrapati Shivaji Maharaj International Airport, Mumbai",
     mapLink:
       "https://www.google.com/maps/search/?api=1&query=Chhatrapati+Shivaji+Maharaj+International+Airport%2C+Mumbai",
     text: "We recommend flying into Mumbai (BOM) — the easiest international gateway, with direct flights from most major cities worldwide. From there it's a scenic ~4–5 hour drive up the coast to South Gujarat, and we've got the driving covered (see Airport Transfers below).",
@@ -284,12 +285,54 @@ export const travel = {
     title: "Airport Transfers",
     text: "Sprinter vans will run from Mumbai airport to the hotels for every arrival window — no need to arrange your own car. We'll collect everyone's flight details closer to the date, and we'll have a seat (and snacks) waiting for you.",
   },
-  // Add hotels as they're confirmed, e.g.:
-  // { name: "Hotel Name", area: "10 min from the venue", note: "Rooms blocked under 'Patel Wedding'", url: "https://..." },
+  // Set each hotel's `distance` (e.g. "10 min to the venue") once the venue is announced.
   hotels: {
     title: "Where to Stay",
-    text: "We've hand-picked a list of lovely hotels, all comfortable and close to the functions. Hotel names, room blocks, and booking codes will be shared along with the formal invitation.",
-    list: [] as { name: string; area: string; note: string; url?: string }[],
+    text: "Our recommended hotels in Surat — all comfortable, well-rated, and convenient to the celebrations. The wedding venue will be announced soon; we'll add exact distances and room-block booking codes then.",
+    list: [
+      {
+        name: "Surat Marriott Hotel",
+        area: "Surat",
+        note: "Full-service Marriott — rated 4.4★ by 12,000+ guests.",
+        url: "https://www.google.com/maps/search/?api=1&query=Surat+Marriott+Hotel",
+      },
+      {
+        name: "Hilton Garden Inn Surat City Centre",
+        area: "Surat",
+        note: "The city's top-rated stay — 4.8★ from 2,100+ guests.",
+        url: "https://www.google.com/maps/search/?api=1&query=Hilton+Garden+Inn+Surat+City+Centre",
+      },
+      {
+        name: "Courtyard by Marriott Surat",
+        area: "Surat",
+        note: "Reliable Marriott comfort — rated 4.3★ by 5,100+ guests.",
+        url: "https://www.google.com/maps/search/?api=1&query=Courtyard+by+Marriott+Surat",
+      },
+      {
+        name: "Weekend Address",
+        area: "Surat",
+        note: "Stylish boutique option — rated 4.1★ by 3,700+ guests.",
+        url: "https://www.google.com/maps/search/?api=1&query=The+Weekend+Address+Surat",
+      },
+      {
+        name: "Park Inn by Radisson Surat",
+        area: "Surat",
+        note: "Modern and highly rated — 4.6★ from 2,000+ guests.",
+        url: "https://www.google.com/maps/search/?api=1&query=Park+Inn+by+Radisson+Surat",
+      },
+      {
+        name: "Le Méridien Surat",
+        area: "Surat",
+        note: "Upscale Marriott-family hotel — rated 4.3★.",
+        url: "https://www.google.com/maps/search/?api=1&query=Le+Meridien+Surat",
+      },
+      {
+        name: "Ginger Surat (City Center)",
+        area: "Surat",
+        note: "Great budget-friendly pick — rated 4.0★ by 2,400+ guests.",
+        url: "https://www.google.com/maps/search/?api=1&query=Ginger+Surat+City+Center",
+      },
+    ] as { name: string; area: string; note: string; url?: string; distance?: string }[],
     comingSoon: "Hotel list coming soon — every option will be near the celebrations.",
   },
   visa: {

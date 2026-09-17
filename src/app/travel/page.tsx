@@ -41,6 +41,16 @@ export default function TravelPage() {
             <p className="mt-4 text-sm italic leading-relaxed text-taupe">
               {travel.gettingThere.alternates}
             </p>
+            <div className="mt-6 overflow-hidden rounded-2xl border border-champagne/40">
+              <iframe
+                title={`Map of ${travel.gettingThere.airportName}`}
+                src={`https://www.google.com/maps?q=${encodeURIComponent(travel.gettingThere.mapQuery)}&z=13&output=embed`}
+                className="h-64 w-full border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
+            </div>
           </div>
         </Reveal>
       </section>
@@ -157,7 +167,10 @@ export default function TravelPage() {
                   className="rounded-t-[2.5rem] border border-champagne/50 bg-cream px-6 pb-6 pt-8 text-center"
                 >
                   <p className="font-display text-2xl font-light">{h.name}</p>
-                  <p className="mt-1 text-xs uppercase tracking-[0.2em] text-taupe">{h.area}</p>
+                  <p className="mt-1 text-xs uppercase tracking-[0.2em] text-taupe">
+                    {h.area}
+                    {h.distance ? ` · ${h.distance}` : ""}
+                  </p>
                   <span className="mx-auto my-4 block h-px w-10 bg-champagne" />
                   <p className="text-sm leading-relaxed text-charcoal/80">{h.note}</p>
                   {h.url && (
