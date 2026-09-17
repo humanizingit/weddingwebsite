@@ -82,11 +82,18 @@ everything!). Submissions go to `POST /api/rsvp`, handled by the Cloudflare Work
 
 ### Local testing
 
-`npm run dev` serves only the static site (no API). To test the full flow locally,
-create a `.dev.vars` file (gitignored) with the four secrets above and run:
+`npm run dev` serves only the static site (no API). To test the full RSVP flow
+locally, copy the template and fill in your real values:
+```bash
+cp .dev.vars.example .dev.vars
+```
+(`.dev.vars` is this project's local env file — the Workers equivalent of `.env`,
+and it's gitignored.) Then run the site through the Worker:
 ```bash
 npm run build && npx wrangler dev
 ```
+The Supabase table itself is created once by running
+[`supabase/schema.sql`](supabase/schema.sql) in the Supabase SQL Editor.
 
 ## Replace the placeholder images
 

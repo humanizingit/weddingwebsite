@@ -1,0 +1,19 @@
+# Local secrets for testing the RSVP API with `npx wrangler dev`.
+#
+#   cp .dev.vars.example .dev.vars     ← .dev.vars is gitignored; never commit it
+#
+# These same four values must also be added in the Cloudflare dashboard
+# (Workers & Pages → weddingwebsite → Settings → Variables and Secrets, type: Secret)
+# for the deployed site.
+
+# Supabase → Project Settings → API → "Project URL"
+SUPABASE_URL=https://YOUR-PROJECT-REF.supabase.co
+
+# Supabase → Project Settings → API → "service_role" key (keep this secret!)
+SUPABASE_SERVICE_ROLE_KEY=paste-service-role-key-here
+
+# resend.com → API Keys → Create API Key
+RESEND_API_KEY=re_paste_key_here
+
+# Any passphrase you choose — it unlocks the /admin guest-list page
+ADMIN_KEY=choose-a-passphrase

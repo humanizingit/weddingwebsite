@@ -28,6 +28,14 @@ export default function TravelPage() {
             <p className="mt-2 text-xs uppercase tracking-[0.2em] text-taupe">
               {travel.gettingThere.airportName}
             </p>
+            <a
+              href={travel.gettingThere.mapLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 inline-block text-[0.65rem] uppercase tracking-[0.25em] text-sage-deep underline decoration-champagne underline-offset-4 transition-colors hover:text-charcoal"
+            >
+              View airport on map
+            </a>
             <span className="mx-auto my-5 block h-px w-12 bg-champagne" />
             <p className="leading-relaxed text-charcoal/85">{travel.gettingThere.text}</p>
             <p className="mt-4 text-sm italic leading-relaxed text-taupe">

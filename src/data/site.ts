@@ -266,6 +266,8 @@ export const travel = {
     title: "Getting There",
     airportCode: "BOM",
     airportName: "Chhatrapati Shivaji Maharaj International Airport, Mumbai",
+    mapLink:
+      "https://www.google.com/maps/search/?api=1&query=Chhatrapati+Shivaji+Maharaj+International+Airport%2C+Mumbai",
     text: "We recommend flying into Mumbai (BOM) — the easiest international gateway, with direct flights from most major cities worldwide. From there it's a scenic ~4–5 hour drive up the coast to South Gujarat, and we've got the driving covered (see Airport Transfers below).",
     alternates:
       "Flying a different route? Surat (STV, domestic) and Ahmedabad (AMD) also work — just note that the group vans run from Mumbai.",
