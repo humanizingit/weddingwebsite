@@ -16,6 +16,36 @@ const sparkles = [
   { left: "35%", top: "88%", delay: "0.7s" },
 ];
 
+// Soft petals drifting down behind the envelope
+const petals = [
+  { left: "6%", dur: "9s", delay: "0s", drift: "60px" },
+  { left: "18%", dur: "11s", delay: "2.2s", drift: "-45px" },
+  { left: "31%", dur: "8.5s", delay: "1.1s", drift: "50px" },
+  { left: "44%", dur: "12s", delay: "3.4s", drift: "-60px" },
+  { left: "57%", dur: "9.5s", delay: "0.6s", drift: "45px" },
+  { left: "68%", dur: "10.5s", delay: "2.8s", drift: "-35px" },
+  { left: "79%", dur: "8s", delay: "1.7s", drift: "55px" },
+  { left: "90%", dur: "11.5s", delay: "0.3s", drift: "-50px" },
+  { left: "25%", dur: "13s", delay: "5s", drift: "70px", sage: true },
+  { left: "72%", dur: "12.5s", delay: "4.2s", drift: "-70px", sage: true },
+];
+
+// Celebration burst when the seal breaks — flies out from the envelope
+const burst = [
+  { tx: "-90px", ty: "-120px", rot: "-140deg", char: "❀", color: "#d9b8ae", delay: "0.5s", size: "15px" },
+  { tx: "70px", ty: "-140px", rot: "120deg", char: "✦", color: "#c9b8a3", delay: "0.55s", size: "12px" },
+  { tx: "-130px", ty: "-60px", rot: "-200deg", char: "✦", color: "#7c8b74", delay: "0.6s", size: "10px" },
+  { tx: "120px", ty: "-80px", rot: "160deg", char: "❀", color: "#a8b5a0", delay: "0.5s", size: "13px" },
+  { tx: "-50px", ty: "-170px", rot: "90deg", char: "♥", color: "#d9b8ae", delay: "0.62s", size: "11px" },
+  { tx: "40px", ty: "-190px", rot: "-100deg", char: "✦", color: "#e8d3cd", delay: "0.58s", size: "13px" },
+  { tx: "150px", ty: "-30px", rot: "220deg", char: "❀", color: "#c9b8a3", delay: "0.65s", size: "11px" },
+  { tx: "-160px", ty: "-10px", rot: "-90deg", char: "♥", color: "#a8b5a0", delay: "0.68s", size: "10px" },
+  { tx: "90px", ty: "-180px", rot: "140deg", char: "❀", color: "#d9b8ae", delay: "0.52s", size: "16px" },
+  { tx: "-100px", ty: "-160px", rot: "-160deg", char: "✦", color: "#7c8b74", delay: "0.66s", size: "12px" },
+  { tx: "0px", ty: "-210px", rot: "40deg", char: "❀", color: "#e8d3cd", delay: "0.54s", size: "14px" },
+  { tx: "170px", ty: "-110px", rot: "260deg", char: "✦", color: "#d9b8ae", delay: "0.6s", size: "10px" },
+];
+
 export default function InvitationIntro() {
   const [stage, setStage] = useState<Stage>("hidden");
   const openingRef = useRef(false);
@@ -70,7 +100,7 @@ export default function InvitationIntro() {
         }
         setStage("hidden");
       },
-      reduced ? 400 : 2900
+      reduced ? 400 : 3200
     );
   }
 
@@ -89,8 +119,8 @@ export default function InvitationIntro() {
           open();
         }
       }}
-      className={`intro-fade-in fixed inset-0 z-[100] flex cursor-pointer flex-col items-center justify-center bg-ivory transition-opacity duration-700 ease-out motion-reduce:transition-none ${
-        opened ? "opacity-0 delay-[2100ms] motion-reduce:delay-0" : "opacity-100"
+      className={`intro-fade-in fixed inset-0 z-[100] flex cursor-pointer flex-col items-center justify-center overflow-hidden bg-ivory transition-opacity duration-700 ease-out motion-reduce:transition-none ${
+        opened ? "opacity-0 delay-[2300ms] motion-reduce:delay-0" : "opacity-100"
       }`}
     >
       {/* soft blush / sage wash */}
@@ -99,9 +129,30 @@ export default function InvitationIntro() {
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(232,211,205,0.55),transparent_55%),radial-gradient(circle_at_82%_78%,rgba(168,181,160,0.4),transparent_55%)]"
       />
 
+      {/* drifting petals */}
+      {petals.map((p, i) => (
+        <span
+          key={`petal-${i}`}
+          aria-hidden
+          className="intro-petal"
+          style={
+            {
+              left: p.left,
+              animationDuration: p.dur,
+              animationDelay: p.delay,
+              "--drift": p.drift,
+              ...(p.sage
+                ? { background: "linear-gradient(135deg, #dce0d5, #a8b5a0)" }
+                : {}),
+            } as React.CSSProperties
+          }
+        />
+      ))}
+
+      {/* twinkling sparkles */}
       {sparkles.map((s, i) => (
         <span
-          key={i}
+          key={`sparkle-${i}`}
           aria-hidden
           className="intro-sparkle"
           style={{ left: s.left, top: s.top, animationDelay: s.delay }}
@@ -111,7 +162,7 @@ export default function InvitationIntro() {
       ))}
 
       <p
-        className={`relative font-script text-5xl text-sage-deep transition-opacity duration-500 md:text-6xl ${
+        className={`intro-title relative font-script text-5xl text-sage-deep transition-opacity duration-500 md:text-6xl ${
           opened ? "opacity-0" : "opacity-100"
         }`}
       >
@@ -119,15 +170,20 @@ export default function InvitationIntro() {
       </p>
 
       {/* envelope */}
-      <div className="relative mt-12 w-72 md:w-80" style={{ perspective: "1200px" }}>
+      <div
+        className="intro-bob relative mt-12 w-72 md:w-80"
+        style={{ perspective: "1200px" }}
+      >
         <div className="relative h-48 md:h-52">
           {/* back */}
           <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-champagne to-[#b7a488] shadow-xl" />
 
-          {/* invitation card — rises out once the flap opens */}
+          {/* invitation card — springs out once the flap opens */}
           <div
-            className={`absolute left-1/2 top-2 z-20 w-[86%] -translate-x-1/2 transition-transform duration-[1100ms] ease-out motion-reduce:transition-none ${
-              opened ? "-translate-y-[72%] delay-500 motion-reduce:delay-0" : "translate-y-0"
+            className={`absolute left-1/2 top-2 z-20 w-[86%] -translate-x-1/2 transition-transform duration-[1100ms] [transition-timing-function:cubic-bezier(0.34,1.4,0.64,1)] motion-reduce:transition-none ${
+              opened
+                ? "-translate-y-[72%] -rotate-2 delay-500 motion-reduce:delay-0"
+                : "translate-y-0"
             }`}
           >
             <div className="rounded-b-lg rounded-t-[4.5rem] border border-champagne/60 bg-cream px-6 pb-5 pt-9 text-center shadow-lg">
@@ -159,7 +215,7 @@ export default function InvitationIntro() {
           >
             <div className="absolute inset-0 rounded-t-xl bg-gradient-to-b from-[#d3c0a5] to-[#c2ad90] shadow-sm [backface-visibility:hidden] [clip-path:polygon(0_0,100%_0,50%_100%)]" />
             <div
-              className={`absolute left-1/2 top-[92%] flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-sage-deep/30 bg-sage-deep shadow-md transition-opacity duration-300 [backface-visibility:hidden] ${
+              className={`intro-seal-pulse absolute left-1/2 top-[92%] flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-sage-deep/30 bg-sage-deep shadow-md transition-opacity duration-300 [backface-visibility:hidden] ${
                 opened ? "opacity-0" : "opacity-100"
               }`}
             >
@@ -168,6 +224,28 @@ export default function InvitationIntro() {
               </span>
             </div>
           </div>
+
+          {/* celebration burst — only once the seal breaks */}
+          {opened &&
+            burst.map((b, i) => (
+              <span
+                key={`burst-${i}`}
+                aria-hidden
+                className="intro-burst"
+                style={
+                  {
+                    color: b.color,
+                    fontSize: b.size,
+                    animationDelay: b.delay,
+                    "--tx": b.tx,
+                    "--ty": b.ty,
+                    "--rot": b.rot,
+                  } as React.CSSProperties
+                }
+              >
+                {b.char}
+              </span>
+            ))}
         </div>
       </div>
 

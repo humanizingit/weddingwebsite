@@ -9,7 +9,23 @@ export default function HomePage() {
   return (
     <>
       {/* Hero — an echo of the save-the-date */}
-      <section className="px-5 pb-20 pt-14 md:pt-20">
+      <section className="relative overflow-hidden px-5 pb-20 pt-14 md:pt-20">
+        {[
+          { left: "8%", top: "22%", delay: "0s" },
+          { left: "90%", top: "18%", delay: "1.2s" },
+          { left: "12%", top: "72%", delay: "2s" },
+          { left: "88%", top: "64%", delay: "0.6s" },
+          { left: "48%", top: "4%", delay: "1.6s" },
+        ].map((s, i) => (
+          <span
+            key={i}
+            aria-hidden
+            className="intro-sparkle"
+            style={{ left: s.left, top: s.top, animationDelay: s.delay }}
+          >
+            ✦
+          </span>
+        ))}
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
           <Reveal>
             <h1 className="font-display text-4xl font-light uppercase tracking-[0.3em] text-champagne md:text-6xl">
