@@ -3,7 +3,7 @@ import ArchImage from "@/components/ArchImage";
 import CalendarDownload from "@/components/CalendarDownload";
 import Countdown from "@/components/Countdown";
 import Reveal from "@/components/Reveal";
-import { siteConfig, events, story, showFullTimeline } from "@/data/site";
+import { siteConfig, events, story, allEventsAnnounced } from "@/data/site";
 
 export default function HomePage() {
   return (
@@ -87,13 +87,13 @@ export default function HomePage() {
           <Reveal>
             <p className="font-script text-4xl text-sage-deep">the celebrations</p>
             <h2 className="mt-3 font-display text-4xl font-light uppercase tracking-[0.18em]">
-              {showFullTimeline ? "Four days of joy" : "The wedding day"}
+              {allEventsAnnounced ? "Four days of joy" : "The celebrations begin"}
             </h2>
           </Reveal>
           <div
             className={
-              showFullTimeline
-                ? "mt-12 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4"
+              events.length > 1
+                ? "mt-12 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-5"
                 : "mx-auto mt-12 max-w-sm"
             }
           >
@@ -113,9 +113,9 @@ export default function HomePage() {
           </div>
           <Reveal delay={300}>
             <p className="mt-12 font-display text-lg italic text-sage-deep">
-              {showFullTimeline
+              {allEventsAnnounced
                 ? "venues, timings & full details coming soon"
-                : "venue, timings & the full week of celebrations coming soon"}
+                : "Alisha's side celebrations & remaining venue details coming soon"}
             </p>
             <Link
               href="/events"

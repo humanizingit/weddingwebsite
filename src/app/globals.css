@@ -32,3 +32,45 @@ body {
   background-color: var(--color-blush);
   color: var(--color-charcoal);
 }
+
+/* ── Invitation intro ─────────────────────────────────────────────────────── */
+
+@keyframes intro-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.intro-fade-in {
+  animation: intro-fade-in 0.45s ease-out;
+}
+
+@keyframes intro-sparkle {
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: translateY(0) scale(0.9);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateY(-10px) scale(1.1);
+  }
+}
+
+.intro-sparkle {
+  position: absolute;
+  color: var(--color-champagne);
+  font-size: 1.25rem;
+  pointer-events: none;
+  animation: intro-sparkle 3s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-fade-in,
+  .intro-sparkle {
+    animation: none;
+  }
+}

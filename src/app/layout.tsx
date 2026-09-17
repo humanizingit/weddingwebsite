@@ -3,6 +3,7 @@ import { Cormorant_Garamond, Great_Vibes, Jost } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import InvitationIntro from "@/components/InvitationIntro";
 import { siteConfig } from "@/data/site";
 
 const cormorant = Cormorant_Garamond({
@@ -36,6 +37,7 @@ export default function RootLayout({
       <body
         className={`${cormorant.variable} ${greatVibes.variable} ${jost.variable} font-body bg-ivory text-charcoal antialiased`}
       >
+        <InvitationIntro />
         <Nav />
         <main className="min-h-screen">{children}</main>
         <Footer />

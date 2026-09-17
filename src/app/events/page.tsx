@@ -3,7 +3,7 @@ import CalendarDownload from "@/components/CalendarDownload";
 import EventCard from "@/components/EventCard";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
-import { events, showFullTimeline } from "@/data/site";
+import { events, allEventsAnnounced } from "@/data/site";
 
 export const metadata: Metadata = { title: "Events — Alisha & Neel" };
 
@@ -21,9 +21,9 @@ export default function EventsPage() {
         eyebrow="the celebrations"
         title="Events"
         subtitle={
-          showFullTimeline
+          allEventsAnnounced
             ? "A classic Indian wedding — each family hosts its own ceremonies through the week, and then we all come together for the wedding day. Every ceremony has its own meaning; here's what to expect. Venues and final timings will be shared with the formal invitation."
-            : "A classic Indian wedding — the full week of pre-wedding celebrations will be announced soon. For now, here's the big day. Venue and final timings will be shared with the formal invitation."
+            : "A classic Indian wedding — each family hosts its own ceremonies, and then we all come together for the wedding day. Neel's side is set below; Alisha's side celebrations will be announced soon. Every ceremony has its own meaning; here's what to expect."
         }
       />
 

@@ -1,6 +1,6 @@
 // ─────────────────────────────────────────────────────────────────────────────
 // EDIT THIS FILE to update the entire website — names, dates, venues, events,
-// travel details, FAQs, gallery images, and your Formspree RSVP form ID.
+// travel details, FAQs, and gallery images.
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const siteConfig = {
@@ -11,8 +11,8 @@ export const siteConfig = {
     hashtag: "#AlishaWedsNeel",
   },
 
-  // Wedding day (IST). Used for the countdown and displayed dates.
-  weddingDateISO: "2027-01-29T12:00:00+05:30",
+  // Wedding day (IST) — the 6 PM celebration start. Used for the countdown.
+  weddingDateISO: "2027-01-29T18:00:00+05:30",
   weddingDateDisplay: "January 29, 2027",
   location: "South Gujarat, India",
 
@@ -26,6 +26,8 @@ export type WeddingEvent = {
   gujaratiName?: string;
   /** Whose celebration this is — bride's side, groom's side, or everyone together */
   side: "Alisha" | "Neel" | "Together";
+  /** Only announced events are shown on the site. Flip to true as details firm up. */
+  announced: boolean;
   date: string;
   time: string;
   /** Machine-readable times (IST) — used for the "Add to Calendar" .ics download */
@@ -34,20 +36,24 @@ export type WeddingEvent = {
   /** Town / village where this event takes place (shown on the home page) */
   location: string;
   venue: string;
+  /** Optional Google Maps link shown as "View on map" on the event card */
+  venueLink?: string;
   attire: string;
   description: string;
   tradition: string;
 };
 
-// Set to true to show the full four-day timeline (mehndi, pithi, sangeet,
-// grah shanti). While false, only the wedding ceremony is shown site-wide.
-export const showFullTimeline = false;
+const JESPOR_MAP =
+  "https://www.google.com/maps/search/?api=1&query=Jespor%2C+Gujarat%2C+India";
+const KOLI_BHATANA_MAP =
+  "https://www.google.com/maps/search/?api=1&query=Koli+Bhatana%2C+Kamrej%2C+Gujarat%2C+India";
 
 const allEvents: WeddingEvent[] = [
   {
     name: "Mehndi",
     gujaratiName: "મહેંદી",
     side: "Alisha",
+    announced: false,
     date: "Tuesday, January 26, 2027",
     time: "3:00 PM onwards",
     startISO: "2027-01-26T15:00:00+05:30",
@@ -64,6 +70,7 @@ const allEvents: WeddingEvent[] = [
     name: "Pithi",
     gujaratiName: "પીઠી (Haldi)",
     side: "Alisha",
+    announced: false,
     date: "Wednesday, January 27, 2027",
     time: "9:00 AM",
     startISO: "2027-01-27T09:00:00+05:30",
@@ -80,12 +87,14 @@ const allEvents: WeddingEvent[] = [
     name: "Pithi",
     gujaratiName: "પીઠી (Haldi)",
     side: "Neel",
+    announced: true,
     date: "Wednesday, January 27, 2027",
     time: "9:00 AM",
     startISO: "2027-01-27T09:00:00+05:30",
     endISO: "2027-01-27T11:00:00+05:30",
     location: "Jespor, Gujarat",
-    venue: "Neel's family home, Jespor — details to follow",
+    venue: "Neel's family home, Jespor",
+    venueLink: JESPOR_MAP,
     attire: "Casual yellows — wear something you don't mind getting turmeric on!",
     description:
       "A playful morning ceremony where Neel is blessed (and thoroughly covered) with turmeric paste by his family.",
@@ -96,6 +105,7 @@ const allEvents: WeddingEvent[] = [
     name: "Sangeet",
     gujaratiName: "સંગીત",
     side: "Alisha",
+    announced: false,
     date: "Wednesday, January 27, 2027",
     time: "7:00 PM onwards",
     startISO: "2027-01-27T19:00:00+05:30",
@@ -109,25 +119,10 @@ const allEvents: WeddingEvent[] = [
       "The sangeet is a night of music and dance celebrating the bride. Garba, Gujarat's beloved folk dance, is performed in rhythmic circles — don't know the steps? You'll learn in five minutes; the circle welcomes everyone.",
   },
   {
-    name: "Sangeet",
-    gujaratiName: "સંગીત",
-    side: "Neel",
-    date: "Wednesday, January 27, 2027",
-    time: "7:00 PM onwards",
-    startISO: "2027-01-27T19:00:00+05:30",
-    endISO: "2027-01-27T23:00:00+05:30",
-    location: "Jespor, Gujarat",
-    venue: "Jespor, Gujarat — venue to be announced",
-    attire: "Kediyu / chaniya choli or festive Indian wear — dress to twirl",
-    description:
-      "Neel's side hosts its own night of garba, raas, dandiya, and performances to send the groom off in style.",
-    tradition:
-      "The sangeet is a night of music and dance celebrating the groom. Garba, Gujarat's beloved folk dance, is performed in rhythmic circles — don't know the steps? You'll learn in five minutes; the circle welcomes everyone.",
-  },
-  {
     name: "Grah Shanti",
     gujaratiName: "ગ્રહ શાંતિ",
     side: "Alisha",
+    announced: false,
     date: "Thursday, January 28, 2027",
     time: "10:00 AM",
     startISO: "2027-01-28T10:00:00+05:30",
@@ -144,12 +139,14 @@ const allEvents: WeddingEvent[] = [
     name: "Grah Shanti",
     gujaratiName: "ગ્રહ શાંતિ",
     side: "Neel",
+    announced: true,
     date: "Thursday, January 28, 2027",
     time: "10:00 AM",
     startISO: "2027-01-28T10:00:00+05:30",
     endISO: "2027-01-28T12:00:00+05:30",
     location: "Jespor, Gujarat",
-    venue: "Neel's family home, Jespor — details to follow",
+    venue: "Neel's family home, Jespor",
+    venueLink: JESPOR_MAP,
     attire: "Traditional Indian wear",
     description:
       "A sacred prayer ceremony at Neel's home with close family, seeking blessings for the marriage ahead.",
@@ -157,26 +154,65 @@ const allEvents: WeddingEvent[] = [
       "The Grah Shanti pooja invokes the blessings of the nine planets (navagraha) to remove obstacles and bring peace, harmony, and prosperity to the couple's new life. It marks the sacred start of the wedding rites in the family home.",
   },
   {
+    name: "Sangeet",
+    gujaratiName: "સંગીત",
+    side: "Neel",
+    announced: true,
+    date: "Thursday, January 28, 2027",
+    time: "8:00 PM onwards",
+    startISO: "2027-01-28T20:00:00+05:30",
+    endISO: "2027-01-28T23:30:00+05:30",
+    location: "Jespor, Gujarat",
+    venue: "Jespor, Gujarat — venue details to follow",
+    venueLink: JESPOR_MAP,
+    attire: "Kediyu / chaniya choli or festive Indian wear — dress to twirl",
+    description:
+      "The night before the wedding, Neel's side hosts a high-energy evening of garba, raas, dandiya, and family performances to send the groom off in style.",
+    tradition:
+      "The sangeet is a night of music and dance celebrating the groom. Garba, Gujarat's beloved folk dance, is performed in rhythmic circles — don't know the steps? You'll learn in five minutes; the circle welcomes everyone.",
+  },
+  {
+    name: "Mosadu",
+    gujaratiName: "મોસાળું",
+    side: "Neel",
+    announced: true,
+    date: "Friday, January 29, 2027",
+    time: "Morning · exact time to follow",
+    startISO: "2027-01-29T09:00:00+05:30",
+    endISO: "2027-01-29T11:00:00+05:30",
+    location: "Jespor, Gujarat",
+    venue: "Neel's family home, Jespor",
+    venueLink: JESPOR_MAP,
+    attire: "Traditional Indian wear",
+    description:
+      "On the morning of the wedding, Neel's maternal family arrives in Jespor with gifts and blessings — the last beautiful ritual at home before the baraat sets off.",
+    tradition:
+      "In the mosadu (mosalu) tradition, the groom's mama — his maternal uncle — arrives with a procession of gifts: outfits, jewelry, and sweets for the groom and his family. It's the mother's side wrapping the groom in their love before he departs to be wed.",
+  },
+  {
     name: "Wedding Ceremony",
     gujaratiName: "લગ્ન",
     side: "Together",
+    announced: true,
     date: "Friday, January 29, 2027",
-    time: "Baraat departs at 12:00 PM · Ceremony to follow",
-    startISO: "2027-01-29T12:00:00+05:30",
-    endISO: "2027-01-29T18:00:00+05:30",
-    location: "Koli Bhatana, Kamrej",
-    venue: "Alisha's family home, Koli Bhatana — full details to follow",
+    time: "Baraat departs Jespor at 1:00 PM · Celebration from 6:00 PM",
+    startISO: "2027-01-29T13:00:00+05:30",
+    endISO: "2027-01-29T23:00:00+05:30",
+    location: "Surat, Gujarat",
+    venue: "Surat — venue to be announced",
     attire: "Formal Indian attire in jewel tones (please avoid white & black)",
     description:
-      "The main event. At noon, Neel's baraat sets off from Jespor for the two-hour journey to Alisha's home in Koli Bhatana — a joyous procession all the way. On arrival, Alisha & Neel exchange garlands and take their pheras around the sacred fire.",
+      "The main event. After the morning mosadu, Neel's baraat sets off from Jespor at 1:00 PM, dancing its way through the two-hour journey to Surat (with time to freshen up on arrival). At 6:00 PM the wedding celebration begins — Alisha & Neel exchange garlands and take their pheras around the sacred fire.",
     tradition:
       "The ceremony begins with the baraat (the groom's dancing procession), followed by the jaimala (exchange of garlands) and the pheras — seven circles around the sacred fire, each representing a vow the couple makes to one another.",
   },
 ];
 
-export const events: WeddingEvent[] = showFullTimeline
-  ? allEvents
-  : allEvents.filter((ev) => ev.side === "Together");
+/** Events shown across the site — only the ones announced so far. */
+export const events: WeddingEvent[] = allEvents.filter((ev) => ev.announced);
+
+/** True once every ceremony (both sides) has been announced. */
+export const allEventsAnnounced = allEvents.every((ev) => ev.announced);
 
 export const story = {
   intro:

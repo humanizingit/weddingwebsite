@@ -23,7 +23,19 @@ export default function EventCard({ event }: { event: WeddingEvent }) {
         </div>
         <div>
           <dt className="text-[0.65rem] uppercase tracking-[0.25em] text-taupe">Where</dt>
-          <dd className="mt-1">{event.venue}</dd>
+          <dd className="mt-1">
+            {event.venue}
+            {event.venueLink && (
+              <a
+                href={event.venueLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-1.5 block text-[0.65rem] uppercase tracking-[0.2em] text-sage-deep underline decoration-champagne underline-offset-4 transition-colors hover:text-charcoal"
+              >
+                View on map
+              </a>
+            )}
+          </dd>
         </div>
         <div>
           <dt className="text-[0.65rem] uppercase tracking-[0.25em] text-taupe">Attire</dt>
