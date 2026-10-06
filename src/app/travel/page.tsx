@@ -187,8 +187,8 @@ export default function TravelPage() {
                   <p className="font-display text-2xl font-light">{h.name}</p>
                   <p className="mt-1 text-xs uppercase tracking-[0.2em] text-taupe">
                     {h.area}
-                    {h.distance ? ` · ${h.distance}` : ""}
                   </p>
+                  {h.distance && <p className="mt-2 text-sm text-sage-deep">{h.distance}</p>}
                   <span className="mx-auto my-4 block h-px w-10 bg-champagne" />
                   <p className="text-sm leading-relaxed text-charcoal/80">{h.note}</p>
                   {h.url && (

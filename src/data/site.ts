@@ -291,52 +291,59 @@ export const travel = {
     title: "Share Your Travel Plans",
     text: "Tell us when you land and where you're staying, and we'll line up the vans and keep everyone travelling together. Fill in what you know now — we'll email you a link to update it as your plans firm up.",
   },
-  // Set each hotel's `distance` (e.g. "10 min to the venue") once the venue is announced.
+  // Each hotel's `distance` is the Google Maps drive to the wedding venue in Koli Bhatana, Kamrej.
   hotels: {
     title: "Where to Stay",
-    text: "Our recommended hotels in Surat — all comfortable, well-rated, and convenient to the celebrations. The wedding venue will be announced soon; we'll add exact distances and room-block booking codes then.",
+    text: "Our recommended hotels in Surat — all comfortable, well-rated, and convenient to the celebrations. Distances are the drive to the wedding venue in Koli Bhatana, Kamrej — and there's no need to arrange your own transport: we'll organize rides between the hotels and the celebrations for all our guests. Just let us know your travel plans in the form above.",
     list: [
       {
         name: "Surat Marriott Hotel",
         area: "Surat",
         note: "Full-service Marriott — rated 4.4★ by 12,000+ guests.",
         url: "https://www.google.com/maps/search/?api=1&query=Surat+Marriott+Hotel",
+        distance: "30 km · about 1 hr to the venue",
       },
       {
         name: "Hilton Garden Inn Surat City Centre",
         area: "Surat",
         note: "The city's top-rated stay — 4.8★ from 2,100+ guests.",
         url: "https://www.google.com/maps/search/?api=1&query=Hilton+Garden+Inn+Surat+City+Centre",
+        distance: "21 km · about 40 min to the venue",
       },
       {
         name: "Courtyard by Marriott Surat",
         area: "Surat",
         note: "Reliable Marriott comfort — rated 4.3★ by 5,100+ guests.",
         url: "https://www.google.com/maps/search/?api=1&query=Courtyard+by+Marriott+Surat",
+        distance: "35 km · about 1 hr 10 min to the venue",
       },
       {
         name: "Weekend Address",
         area: "Surat",
         note: "Stylish boutique option — rated 4.1★ by 3,700+ guests.",
         url: "https://www.google.com/maps/search/?api=1&query=The+Weekend+Address+Surat",
+        distance: "40 km · about 1 hr 15 min to the venue",
       },
       {
         name: "Park Inn by Radisson Surat",
         area: "Surat",
         note: "Modern and highly rated — 4.6★ from 2,000+ guests.",
         url: "https://www.google.com/maps/search/?api=1&query=Park+Inn+by+Radisson+Surat",
+        distance: "28 km · about 55 min to the venue",
       },
       {
         name: "Le Méridien Surat",
         area: "Surat",
         note: "Upscale Marriott-family hotel — rated 4.3★.",
         url: "https://www.google.com/maps/search/?api=1&query=Le+Meridien+Surat",
+        distance: "36 km · about 1 hr 10 min to the venue",
       },
       {
         name: "Ginger Surat (City Center)",
         area: "Surat",
         note: "Great budget-friendly pick — rated 4.0★ by 2,400+ guests.",
         url: "https://www.google.com/maps/search/?api=1&query=Ginger+Surat+City+Center",
+        distance: "21 km · about 40 min to the venue",
       },
     ] as { name: string; area: string; note: string; url?: string; distance?: string }[],
     comingSoon: "Hotel list coming soon — every option will be near the celebrations.",
