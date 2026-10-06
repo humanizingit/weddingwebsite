@@ -199,7 +199,8 @@ const allEvents: WeddingEvent[] = [
     startISO: "2027-01-29T13:00:00+05:30",
     endISO: "2027-01-29T23:00:00+05:30",
     location: "Surat, Gujarat",
-    venue: "Surat — venue to be announced",
+    venue: "Alisha's family home — Koli Bhatana, Kamrej (Surat)",
+    venueLink: KOLI_BHATANA_MAP,
     attire: "Formal Indian attire in jewel tones (please avoid white & black)",
     description:
       "The main event. After the morning mosadu, Neel's baraat sets off from Jespor at 1:00 PM, dancing its way through the two-hour journey to Surat (with time to freshen up on arrival). At 6:00 PM the wedding celebration begins — Alisha & Neel exchange garlands and take their pheras around the sacred fire.",
@@ -283,7 +284,12 @@ export const travel = {
   },
   transfers: {
     title: "Airport Transfers",
-    text: "Sprinter vans will run from Mumbai airport to the hotels for every arrival window — no need to arrange your own car. We'll collect everyone's flight details closer to the date, and we'll have a seat (and snacks) waiting for you.",
+    text: "Sprinter vans will run from Mumbai airport to the hotels for every arrival window — no need to arrange your own car. Share your flight details in the form below, and we'll have a seat (and snacks) waiting for you.",
+  },
+  // Intro for the "share your travel plans" form (submissions show up on /admin).
+  plans: {
+    title: "Share Your Travel Plans",
+    text: "Tell us when you land and where you're staying, and we'll line up the vans and keep everyone travelling together. Fill in what you know now — we'll email you a link to update it as your plans firm up.",
   },
   // Set each hotel's `distance` (e.g. "10 min to the venue") once the venue is announced.
   hotels: {

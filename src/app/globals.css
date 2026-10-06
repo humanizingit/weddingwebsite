@@ -2,7 +2,7 @@
 
 @theme inline {
   --font-display: var(--font-cormorant), Georgia, serif;
-  --font-script: var(--font-great-vibes), cursive;
+  --font-script: var(--font-cormorant), Georgia, serif;
   --font-body: var(--font-jost), system-ui, sans-serif;
 }
 
@@ -21,6 +21,12 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Accent lines ("the celebrations", "for the groom"…) are set in Cormorant
+   italic — much easier to read than a handwriting face, especially on phones. */
+.font-script {
+  font-style: italic;
 }
 
 body {

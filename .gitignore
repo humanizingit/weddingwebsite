@@ -9,3 +9,6 @@ next-env.d.ts
 
 # Original full-res photos (not deployed)
 photos/
+
+# Supabase CLI link state
+supabase/.temp/

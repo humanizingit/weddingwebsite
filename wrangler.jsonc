@@ -12,7 +12,10 @@
     "not_found_handling": "404-page"
   },
   "vars": {
-    "NOTIFY_EMAIL": "patel.neel76@gmail.com"
+    // Everyone who gets a copy of each RSVP (comma-separated)
+    "NOTIFY_EMAIL": "patel.neel76@gmail.com,patel.alu2000@gmail.com",
+    // Sender for guest confirmations + notifications (domain verified in Resend)
+    "RSVP_FROM_EMAIL": "Alisha & Neel <rsvp@alishaandneelpatel.com>"
   }
   // Secrets (set in Cloudflare dashboard → Variables and Secrets, or `wrangler secret put`):
   //   SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, RESEND_API_KEY, ADMIN_KEY

@@ -14,9 +14,9 @@ export default function AdminPage() {
         as="h1"
         eyebrow="for the couple"
         title="Guest List"
-        subtitle="Enter the admin key to see everyone who has RSVPed. Responses live in Supabase — this page pulls them in real time."
+        subtitle="Enter the admin key to see everyone who has RSVPed and the travel plans guests have shared. Responses live in Supabase — this page pulls them in real time."
       />
-      <div className="mx-auto mt-16 max-w-3xl">
+      <div className="mx-auto mt-16 max-w-6xl">
         <AdminRsvps />
       </div>
     </div>

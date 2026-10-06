@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
+import TravelPlanForm from "@/components/TravelPlanForm";
 import { travel, villages } from "@/data/site";
 
 export const metadata: Metadata = { title: "Travel & Stay — Alisha & Neel" };
@@ -148,6 +149,23 @@ export default function TravelPage() {
             <p className="mt-3 leading-relaxed text-charcoal/80">{travel.transfers.text}</p>
           </div>
         </Reveal>
+      </section>
+
+      {/* Share your travel plans */}
+      <section id="travel-plans" className="mx-auto mt-20 max-w-2xl scroll-mt-24">
+        <Reveal className="text-center">
+          <p className="font-script text-3xl text-sage-deep">so we can plan around you</p>
+          <h2 className="mt-2 font-display text-3xl font-light uppercase tracking-[0.2em]">
+            {travel.plans.title}
+          </h2>
+          <span className="mx-auto mt-5 block h-px w-12 bg-champagne" />
+          <p className="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-taupe">
+            {travel.plans.text}
+          </p>
+        </Reveal>
+        <div className="mt-10">
+          <TravelPlanForm />
+        </div>
       </section>
 
       {/* Hotels */}

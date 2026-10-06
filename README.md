@@ -32,34 +32,29 @@ Almost all content lives in **`src/data/site.ts`** — edit it to update:
 
 ## RSVP: Supabase (storage) + Resend (email) via Cloudflare Worker
 
-The RSVP form is intentionally simple — **name + yes/no** (everybody's invited to
-everything!). Submissions go to `POST /api/rsvp`, handled by the Cloudflare Worker in
-[`worker/index.ts`](worker/index.ts), which:
+The RSVP form is intentionally simple — **name, email, phone, yes/no and wishes for
+the couple** (everybody's invited to everything!). Submissions go to `POST /api/rsvp`,
+handled by the Cloudflare Worker in [`worker/index.ts`](worker/index.ts), which:
 
-1. **Stores** the response in a Supabase table (`rsvps`) — your permanent guest list
-2. **Emails** you a notification via Resend
+1. **Stores** the response in a Supabase table (`rsvps`) — your permanent guest list.
+   The database generates a secret **edit token** for each RSVP.
+2. **Emails the guest** a confirmation from `rsvp@alishaandneelpatel.com` with their
+   details and a personal edit link (`/rsvp/?edit=<token>`) to change their reply
+3. **Emails you** a notification — to every address in `NOTIFY_EMAIL`
 
 ### One-time setup
 
 **Supabase (storage):**
 1. Create a free project at [supabase.com](https://supabase.com)
-2. In the SQL Editor, run:
-   ```sql
-   create table rsvps (
-     id uuid primary key default gen_random_uuid(),
-     name text not null,
-     attending boolean not null,
-     created_at timestamptz not null default now()
-   );
-   alter table rsvps enable row level security;  -- no public policies: only the
-                                                 -- worker's service key can touch it
-   ```
+2. In the SQL Editor, run [`supabase/schema.sql`](supabase/schema.sql) (safe to
+   re-run). Row level security is on with no public policies, so only the worker's
+   service key can touch the table.
 3. Grab **Project Settings → API**: the project URL and the `service_role` key
 
 **Resend (email):**
 1. Create a free account at [resend.com](https://resend.com) → **API Keys** → create one
-2. Optional: verify your own domain to send from e.g. `rsvp@alishaandneel.com`;
-   until then it sends from Resend's onboarding address to your own email
+2. Verify `alishaandneelpatel.com` under **Domains** — guest confirmations can only
+   be sent from a verified domain
 
 **Cloudflare (wire it up):** In the dashboard → Workers & Pages → `weddingwebsite` →
 **Settings → Variables and Secrets**, add these as **Secrets**:
@@ -71,13 +66,22 @@ everything!). Submissions go to `POST /api/rsvp`, handled by the Cloudflare Work
 | `RESEND_API_KEY` | your Resend key |
 | `ADMIN_KEY` | any passphrase you choose — unlocks the guest list page |
 
-(`NOTIFY_EMAIL` is already set in `wrangler.jsonc`.) Redeploy after adding them.
+(`NOTIFY_EMAIL` — comma-separated — and `RSVP_FROM_EMAIL` are already set in
+`wrangler.jsonc`.) Redeploy after adding them.
 
-### Viewing your RSVPs
+### Travel plans
 
-- **`/admin` on your live site** — enter your `ADMIN_KEY` to see live counts
-  (total / accepted / declined) and the full list, pulled from Supabase
-- **Supabase dashboard** — Table Editor → `rsvps` (you can also export CSV there)
+The Travel page has a **Share Your Travel Plans** form (arrival and departure flights,
+group size, van seats, hotel). It works exactly like the RSVP form — saved to the
+`travel_plans` table, confirmation email with a personal edit link
+(`/travel/?edit=<token>`), and a notification to you — via `/api/travel`.
+
+### Viewing your RSVPs and travel plans
+
+- **`/admin` on your live site** — enter your `ADMIN_KEY` to see live counts and the
+  full RSVP and travel-plan lists (arrivals sorted by date), each with a
+  **Download CSV** button
+- **Supabase dashboard** — Table Editor → `rsvps` / `travel_plans`
 - **Email** — every submission also lands in your inbox via Resend
 
 ### Local testing

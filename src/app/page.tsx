@@ -123,7 +123,17 @@ export default function HomePage() {
                 </p>
                 <span className="mx-auto my-3 block h-px w-8 bg-champagne" />
                 <p className="text-xs uppercase tracking-[0.2em] text-taupe">{ev.date}</p>
-                <p className="mt-2 text-sm text-charcoal/80">{ev.location}</p>
+                <a
+                  href={
+                    ev.venueLink ??
+                    `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${ev.location}, India`)}`
+                  }
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 inline-block text-sm text-charcoal/80 underline decoration-champagne underline-offset-4 transition-colors hover:text-sage-deep"
+                >
+                  {ev.location}
+                </a>
               </Reveal>
             ))}
           </div>

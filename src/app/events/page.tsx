@@ -27,6 +27,16 @@ export default function EventsPage() {
         }
       />
 
+      <Reveal className="mx-auto mt-8 max-w-2xl text-center">
+        <p className="text-balance leading-relaxed text-charcoal/80">
+          In the United States, wedding events are customarily hosted jointly by both
+          families. In India, tradition takes a different form: with families as large as
+          ours, each side hosts its own set of celebrations. We will therefore hold two
+          sets of events, one for each family, before everyone comes together in Surat at
+          Alisha&apos;s family home, where the wedding ceremony will take place.
+        </p>
+      </Reveal>
+
       <div className="mt-8 text-center">
         <CalendarDownload />
       </div>
