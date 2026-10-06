@@ -77,7 +77,7 @@ const allEvents: WeddingEvent[] = [
     endISO: "2027-01-27T11:00:00+05:30",
     location: "Koli Bhatana, Kamrej",
     venue: "Alisha's family home, Koli Bhatana — details to follow",
-    attire: "Casual yellows — wear something you don't mind getting turmeric on!",
+    attire: "Light yellow — and something you don't mind getting turmeric on!",
     description:
       "A playful morning ceremony where Alisha is blessed (and thoroughly covered) with turmeric paste by her family.",
     tradition:
@@ -95,7 +95,7 @@ const allEvents: WeddingEvent[] = [
     location: "Jespor, Gujarat",
     venue: "Neel's family home, Jespor",
     venueLink: JESPOR_MAP,
-    attire: "Casual yellows — wear something you don't mind getting turmeric on!",
+    attire: "Light yellow — and something you don't mind getting turmeric on!",
     description:
       "A playful morning ceremony where Neel is blessed (and thoroughly covered) with turmeric paste by his family.",
     tradition:
@@ -201,7 +201,7 @@ const allEvents: WeddingEvent[] = [
     location: "Koli Bhatana, Kamrej",
     venue: "Alisha's family home — Koli Bhatana, Kamrej, Gujarat",
     venueLink: KOLI_BHATANA_MAP,
-    attire: "Formal Indian attire in jewel tones (please avoid white & black)",
+    attire: "Suit or formal Indian attire — for the baraat, gentlemen traditionally wear a suit and ladies wear formal Indian attire",
     description:
       "The main event. After the morning mosadu, Neel's baraat sets off from Jespor at 1:00 PM, dancing its way through the two-hour journey to Koli Bhatana (with time to freshen up on arrival). At 6:00 PM the wedding celebration begins — Alisha & Neel exchange garlands and take their pheras around the sacred fire.",
     tradition:
@@ -400,7 +400,7 @@ export const faqs = [
   },
   {
     q: "What should I wear to each event?",
-    a: "Each event page lists suggested attire — broadly: colorful festive wear for the Mehndi, yellows for the Pithi, twirl-ready garba outfits for the Sangeet night, formal Indian attire in jewel tones for the wedding, and black-tie-optional or Indo-western for the reception. Don't have Indian outfits? Don't stress — you can shop wonderfully (and affordably) once you arrive, or wear formal Western attire.",
+    a: "Each event page lists suggested attire — broadly: colorful festive wear for the Mehndi, light yellow for the Pithi (Haldi), twirl-ready garba outfits for the Sangeet night, a suit or formal Indian attire for the wedding, and black-tie-optional or Indo-western for the reception. Don't have Indian outfits? Don't stress — you can shop wonderfully (and affordably) once you arrive, or wear formal Western attire.",
   },
   {
     q: "I've never attended an Indian wedding. What should I expect?",
