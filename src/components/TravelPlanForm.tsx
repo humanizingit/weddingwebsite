@@ -35,7 +35,9 @@ type Plan = typeof emptyPlan;
 
 const labelClass = "mb-2 block text-[0.65rem] uppercase tracking-[0.25em] text-taupe";
 const inputClass =
-  "w-full rounded-lg border border-champagne/60 bg-cream px-4 py-3 text-sm outline-none transition-colors placeholder:text-taupe/60 focus:border-sage-deep";
+  "w-full rounded-lg border border-champagne/60 bg-cream px-4 py-3 text-base outline-none md:text-sm transition-colors placeholder:text-taupe/60 focus:border-sage-deep";
+// iOS sizes date/time fields on its own unless their native look is reset.
+const dateInputClass = `${inputClass} min-w-0 text-left max-md:min-h-[3.125rem] max-md:appearance-none`;
 const groupTitleClass =
   "border-b border-champagne/40 pb-2 font-display text-xl font-light uppercase tracking-[0.18em]";
 
@@ -293,7 +295,7 @@ export default function TravelPlanForm() {
                 required={required}
                 value={plan[`${prefix}_date`]}
                 onChange={set(`${prefix}_date`)}
-                className={inputClass}
+                className={dateInputClass}
               />
             </div>
             <div>
@@ -305,7 +307,7 @@ export default function TravelPlanForm() {
                 type="time"
                 value={plan[`${prefix}_time`]}
                 onChange={set(`${prefix}_time`)}
-                className={inputClass}
+                className={dateInputClass}
               />
             </div>
           </div>

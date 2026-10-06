@@ -144,7 +144,7 @@ export default function AdminRsvps() {
           onChange={(e) => setAdminKey(e.target.value)}
           placeholder="Admin key"
           required
-          className="w-full rounded-lg border border-champagne/60 bg-cream px-4 py-3 text-sm outline-none transition-colors placeholder:text-taupe/60 focus:border-sage-deep"
+          className="w-full rounded-lg border border-champagne/60 bg-cream px-4 py-3 text-base outline-none md:text-sm transition-colors placeholder:text-taupe/60 focus:border-sage-deep"
         />
         <button
           type="submit"

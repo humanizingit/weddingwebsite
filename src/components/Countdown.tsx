@@ -43,15 +43,15 @@ export default function Countdown() {
   ];
 
   return (
-    <div className="flex items-start justify-center gap-6 md:gap-10">
+    <div className="flex items-start justify-center gap-3 sm:gap-6 md:gap-10">
       {blocks.map((b, i) => (
-        <div key={b.label} className="flex items-start gap-6 md:gap-10">
-          {i > 0 && <span className="mt-2 font-display text-3xl text-champagne">·</span>}
+        <div key={b.label} className="flex items-start gap-3 sm:gap-6 md:gap-10">
+          {i > 0 && <span className="mt-1 font-display text-2xl text-champagne sm:mt-2 sm:text-3xl">·</span>}
           <div className="text-center">
-            <p className="font-display text-4xl font-light tabular-nums md:text-5xl">
+            <p className="font-display text-3xl font-light tabular-nums sm:text-4xl md:text-5xl">
               {b.value}
             </p>
-            <p className="mt-1 text-[0.65rem] uppercase tracking-[0.25em] text-taupe">
+            <p className="mt-1 text-[0.55rem] uppercase tracking-[0.15em] text-taupe sm:text-[0.65rem] sm:tracking-[0.25em]">
               {b.label}
             </p>
           </div>

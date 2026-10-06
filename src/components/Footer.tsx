@@ -20,7 +20,7 @@ export default function Footer() {
           Questions? Write to us at <br className="sm:hidden" />
           <a
             href={`mailto:${siteConfig.email}`}
-            className="break-all underline decoration-champagne underline-offset-4 hover:text-charcoal"
+            className="inline-block break-all py-1 underline decoration-champagne underline-offset-4 hover:text-charcoal"
           >
             {siteConfig.email}
           </a>

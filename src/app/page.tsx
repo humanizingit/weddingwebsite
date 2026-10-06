@@ -102,7 +102,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-5xl text-center">
           <Reveal>
             <p className="font-script text-4xl text-sage-deep">the celebrations</p>
-            <h2 className="mt-3 font-display text-4xl font-light uppercase tracking-[0.18em]">
+            <h2 className="mt-3 font-display text-3xl font-light uppercase tracking-[0.14em] sm:text-4xl sm:tracking-[0.18em]">
               {allEventsAnnounced ? "Four days of joy" : "The celebrations begin"}
             </h2>
           </Reveal>
@@ -130,7 +130,7 @@ export default function HomePage() {
                   }
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-2 inline-block text-sm text-charcoal/80 underline decoration-champagne underline-offset-4 transition-colors hover:text-sage-deep"
+                  className="mt-0.5 inline-block py-1.5 text-sm text-charcoal/80 underline decoration-champagne underline-offset-4 transition-colors hover:text-sage-deep"
                 >
                   {ev.location}
                 </a>

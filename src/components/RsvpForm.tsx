@@ -7,7 +7,7 @@ type Status = "idle" | "loading" | "sending" | "success" | "error";
 
 const labelClass = "mb-2 block text-[0.65rem] uppercase tracking-[0.25em] text-taupe";
 const inputClass =
-  "w-full rounded-lg border border-champagne/60 bg-cream px-4 py-3 text-sm outline-none transition-colors placeholder:text-taupe/60 focus:border-sage-deep";
+  "w-full rounded-lg border border-champagne/60 bg-cream px-4 py-3 text-base outline-none md:text-sm transition-colors placeholder:text-taupe/60 focus:border-sage-deep";
 
 export default function RsvpForm() {
   const [status, setStatus] = useState<Status>("idle");

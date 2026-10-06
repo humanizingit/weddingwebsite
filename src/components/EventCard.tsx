@@ -30,7 +30,7 @@ export default function EventCard({ event }: { event: WeddingEvent }) {
                 href={event.venueLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-1.5 block text-[0.65rem] uppercase tracking-[0.2em] text-sage-deep underline decoration-champagne underline-offset-4 transition-colors hover:text-charcoal"
+                className="inline-block py-2 text-[0.65rem] uppercase tracking-[0.2em] text-sage-deep underline decoration-champagne underline-offset-4 transition-colors hover:text-charcoal"
               >
                 View on map
               </a>
@@ -50,7 +50,7 @@ export default function EventCard({ event }: { event: WeddingEvent }) {
           <p className="text-[0.65rem] uppercase tracking-[0.25em] text-sage-deep">
             About the tradition
           </p>
-          <p className="mt-2 font-display text-[0.95rem] italic leading-relaxed text-charcoal/80">
+          <p className="mt-2 font-display text-[1.05rem] italic leading-relaxed text-charcoal/80">
             {event.tradition}
           </p>
         </div>

@@ -198,12 +198,12 @@ const allEvents: WeddingEvent[] = [
     time: "Baraat departs Jespor at 1:00 PM · Celebration from 6:00 PM",
     startISO: "2027-01-29T13:00:00+05:30",
     endISO: "2027-01-29T23:00:00+05:30",
-    location: "Surat, Gujarat",
-    venue: "Alisha's family home — Koli Bhatana, Kamrej (Surat)",
+    location: "Koli Bhatana, Kamrej",
+    venue: "Alisha's family home — Koli Bhatana, Kamrej, Gujarat",
     venueLink: KOLI_BHATANA_MAP,
     attire: "Formal Indian attire in jewel tones (please avoid white & black)",
     description:
-      "The main event. After the morning mosadu, Neel's baraat sets off from Jespor at 1:00 PM, dancing its way through the two-hour journey to Surat (with time to freshen up on arrival). At 6:00 PM the wedding celebration begins — Alisha & Neel exchange garlands and take their pheras around the sacred fire.",
+      "The main event. After the morning mosadu, Neel's baraat sets off from Jespor at 1:00 PM, dancing its way through the two-hour journey to Koli Bhatana (with time to freshen up on arrival). At 6:00 PM the wedding celebration begins — Alisha & Neel exchange garlands and take their pheras around the sacred fire.",
     tradition:
       "The ceremony begins with the baraat (the groom's dancing procession), followed by the jaimala (exchange of garlands) and the pheras — seven circles around the sacred fire, each representing a vow the couple makes to one another.",
   },

@@ -33,7 +33,7 @@ export default function TravelPage() {
               href={travel.gettingThere.mapLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-3 inline-block text-[0.65rem] uppercase tracking-[0.25em] text-sage-deep underline decoration-champagne underline-offset-4 transition-colors hover:text-charcoal"
+              className="mt-1 inline-block py-2 text-[0.65rem] uppercase tracking-[0.25em] text-sage-deep underline decoration-champagne underline-offset-4 transition-colors hover:text-charcoal"
             >
               View airport on map
             </a>
@@ -92,12 +92,12 @@ export default function TravelPage() {
                   referrerPolicy="no-referrer-when-downgrade"
                   allowFullScreen
                 />
-                <div className="px-6 py-4 text-center">
+                <div className="px-6 py-2 text-center">
                   <a
                     href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(v.mapQuery)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[0.65rem] uppercase tracking-[0.25em] text-sage-deep underline decoration-champagne underline-offset-4 hover:text-charcoal"
+                    className="inline-block py-2 text-[0.65rem] uppercase tracking-[0.25em] text-sage-deep underline decoration-champagne underline-offset-4 hover:text-charcoal"
                   >
                     Open in Google Maps
                   </a>
